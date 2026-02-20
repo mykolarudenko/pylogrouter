@@ -146,3 +146,4 @@ stats = logger.get_throttle_stats()
 ---
 
 [![PyPI Downloads](https://static.pepy.tech/badge/pylogrouter)](https://pepy.tech/projects/pylogrouter)
+![Views](https://komarev.com/ghpvc/?username=mykolarudenko&color=blue&style=flat-square)
