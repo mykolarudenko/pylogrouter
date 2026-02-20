@@ -1,0 +1,50 @@
+name: ci
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  test-and-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup uv
+        uses: astral-sh/setup-uv@v5
+
+      - name: Setup Python
+        run: uv python install 3.12
+
+      - name: Run tests
+        run: uv run --group dev pytest -q
+
+      - name: Build package
+        run: uv build
+
+      - name: Verify template is bundled
+        run: |
+          uv run python - <<'PY'
+          import pathlib
+          import tarfile
+          import zipfile
+
+          dist = pathlib.Path("dist")
+          wheel = sorted(dist.glob("pylogrouter-*.whl"))[-1]
+          sdist = sorted(dist.glob("pylogrouter-*.tar.gz"))[-1]
+          required = "pylogrouter/templates/log_document.html"
+
+          with zipfile.ZipFile(wheel) as zf:
+              assert required in zf.namelist(), f"{required} is missing in wheel"
+
+          sdist_root = sdist.name[:-7]
+          sdist_required = f"{sdist_root}/src/{required}"
+          sdist_license = f"{sdist_root}/LICENSE"
+          with tarfile.open(sdist) as tf:
+              names = tf.getnames()
+              assert sdist_required in names, f"{required} is missing in sdist"
+              assert sdist_license in names, "LICENSE is missing in sdist"
+          PY
