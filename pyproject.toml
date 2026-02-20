@@ -1,6 +1,6 @@
 [project]
 name = "pylogrouter"
-version = "0.1.5"
+version = "0.1.6"
 description = "Python Log Router with console, file and HTML facilities"
 readme = "README.md"
 license = "MIT"
