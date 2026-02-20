@@ -86,6 +86,7 @@ if updated_version_py == version_py_text:
 version_py_path.write_text(updated_version_py, encoding="utf-8")
 PY
 
+uv lock
 uv run --group dev pytest -q
 uv build
 
@@ -115,11 +116,12 @@ with tarfile.open(sdist_path) as sdist:
         raise SystemExit("ERROR: LICENSE is missing in sdist")
 PY
 
-git add pyproject.toml src/pylogrouter/version.py
+git add pyproject.toml src/pylogrouter/version.py uv.lock
 git commit -m "Release v${NEXT_VERSION}"
 git tag "v${NEXT_VERSION}"
 
+git push
+git push --tags
+
 echo "Release prepared successfully."
-echo "Next steps:"
-echo "  git push"
-echo "  git push --tags"
+echo "Release pushed successfully (branch + tags)."
