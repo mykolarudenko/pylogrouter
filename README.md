@@ -12,18 +12,10 @@ Repository: `https://github.com/mykolarudenko/pylogrouter`
 
 ---
 
-## Install from Git (uv)
-
-Option 1 — HTTPS:
+## Install from PyPI (pip)
 
 ```bash
-uv pip install "pylogrouter @ git+https://github.com/mykolarudenko/pylogrouter.git"
-```
-
-Option 2 — SSH:
-
-```bash
-uv pip install "pylogrouter @ git+ssh://git@github.com/mykolarudenko/pylogrouter.git"
+pip install pylogrouter
 ```
 
 ---
@@ -150,3 +142,7 @@ stats = logger.get_throttle_stats()
 - `max_writes_per_second`: `200`
 - `throttle_window_seconds`: `1`
 - `plain_log_max_file_size_bytes`: `209715200` (200 MiB)
+
+---
+
+[![PyPI Downloads](https://static.pepy.tech/badge/pylogrouter)](https://pepy.tech/projects/pylogrouter)
