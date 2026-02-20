@@ -63,17 +63,17 @@ logger.warning("Only console + html", handles=[LoggerRouter.HANDLE_CONSOLE, "htm
 
 ### Console output
 
-![Console output](docs/assets/console.png)
+![Console output](https://raw.githubusercontent.com/mykolarudenko/pylogrouter/master/docs/assets/console.png)
 *Figure 1 — Console output from `example.py` mock stream (`logger_color=True`).*
 
 ### HTML output (dark theme)
 
-![HTML dark theme](docs/assets/browser-dark.png)
+![HTML dark theme](https://raw.githubusercontent.com/mykolarudenko/pylogrouter/master/docs/assets/browser-dark.png)
 *Figure 2 — Browser view of the generated HTML log in dark theme (`html_theme="dark"`).*
 
 ### HTML output (light theme)
 
-![HTML light theme](docs/assets/browser-light.png)
+![HTML light theme](https://raw.githubusercontent.com/mykolarudenko/pylogrouter/master/docs/assets/browser-light.png)
 *Figure 3 — Browser view of the generated HTML log in light theme (`html_theme="light"`).*
 
 ---
