@@ -59,6 +59,22 @@ logger.warning("Only console + html", handles=[LoggerRouter.HANDLE_CONSOLE, "htm
 
 ---
 
+## Screenshots
+
+### Console output
+
+![Console output](docs/assets/console.png)
+
+### HTML output (dark theme)
+
+![HTML dark theme](docs/assets/browser-dark.png)
+
+### HTML output (light theme)
+
+![HTML light theme](docs/assets/browser-light.png)
+
+---
+
 ## Usage / API reference (short)
 
 ### Singleton model
